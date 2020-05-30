@@ -115,5 +115,11 @@ def get_models_between(start_year, end_year):
     """Returns all Model objects corresponding to models made between
     start_year (inclusive) and end_year (exclusive)."""
 
+    # results = Model.query.filter(Model.year >= start_year, 
+    #                             Model.year < end_year).all()
+ 
+    results = Model.query.filter(Model.year.in_(range(start_year, end_year))).all()
+    
+    return results
     
 
